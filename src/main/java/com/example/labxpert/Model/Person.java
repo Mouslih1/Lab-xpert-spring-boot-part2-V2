@@ -1,5 +1,6 @@
 package com.example.labxpert.Model;
 
+import com.example.labxpert.Model.Enum.Sexe;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,11 +16,16 @@ import java.time.LocalDate;
 public abstract class Person {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    private Long id;
     private String nom;
     private String prenom;
     private String address;
     private String tel;
     private String ville;
+
+    @Enumerated(EnumType.STRING)
+    private Sexe sexe;
+
     private LocalDate date_naissance;
 }

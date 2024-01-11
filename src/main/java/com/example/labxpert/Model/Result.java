@@ -16,6 +16,7 @@ public class Result {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private double valeur_result;
     private String unite_mesure;
 }

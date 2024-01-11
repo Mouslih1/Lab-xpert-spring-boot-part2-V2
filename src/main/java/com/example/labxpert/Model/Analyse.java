@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -33,6 +34,6 @@ public class Analyse {
     private LocalDate date_fin;
     private String commantaires;
 
-    @OneToMany(mappedBy = "analyses", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "analyse", fetch = FetchType.LAZY)
     private List<SousAnalyse> sousAnalyses;
 }

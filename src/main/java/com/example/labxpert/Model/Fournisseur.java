@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -20,6 +21,6 @@ public class Fournisseur {
     private String nameComplet;
     private String societeName;
 
-    @OneToMany(mappedBy = "reactifs", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "fournisseur", fetch = FetchType.LAZY)
     private List<Reactif> reactifs;
 }

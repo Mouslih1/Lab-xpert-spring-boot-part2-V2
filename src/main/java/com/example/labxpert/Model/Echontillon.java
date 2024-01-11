@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -32,6 +33,6 @@ public class Echontillon {
     @Enumerated(EnumType.STRING)
     private StatusEchontillon statusEchontillon;
 
-    @OneToMany(mappedBy = "echontillons", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "echontillon", fetch = FetchType.LAZY)
     private List<Analyse> analyses;
 }
