@@ -28,9 +28,6 @@ public class SousAnalyse {
     @OneToOne
     private Reactif reactif;
 
-    @OneToOne
-    private Result result;
-
     @Enumerated(EnumType.STRING)
     private StatusResult statusResult;
 }

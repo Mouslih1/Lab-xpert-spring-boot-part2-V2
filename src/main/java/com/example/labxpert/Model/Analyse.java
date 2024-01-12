@@ -1,6 +1,7 @@
 package com.example.labxpert.Model;
 
 import com.example.labxpert.Model.Enum.StatusResult;
+import com.example.labxpert.Model.Enum.TypeAnalyse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,6 +30,9 @@ public class Analyse {
 
     @Enumerated(EnumType.STRING)
     private StatusResult statusResult;
+
+    @Enumerated(EnumType.STRING)
+    private TypeAnalyse typeAnalyse;
 
     private LocalDate date_debut;
     private LocalDate date_fin;

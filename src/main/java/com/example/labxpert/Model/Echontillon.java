@@ -25,9 +25,6 @@ public class Echontillon {
     @ManyToOne
     private Patient patient;
 
-    @Enumerated(EnumType.STRING)
-    private TypeAnalyse typeAnalyse;
-
     private LocalDate date_p;
 
     @Enumerated(EnumType.STRING)

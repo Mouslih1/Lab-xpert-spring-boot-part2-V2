@@ -19,4 +19,7 @@ public class Result {
 
     private double valeur_result;
     private String unite_mesure;
+
+    @OneToOne
+    private SousAnalyse sousAnalyse;
 }
