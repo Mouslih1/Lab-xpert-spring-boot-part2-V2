@@ -3,10 +3,12 @@ package com.example.labxpert.Model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -21,6 +23,9 @@ public class Fournisseur {
     private String nameComplet;
     private String societeName;
 
-    @OneToMany(mappedBy = "fournisseur", fetch = FetchType.LAZY)
-    private List<Reactif> reactifs;
+    private Boolean is_delete;
+
+    @ToString.Exclude
+    @OneToMany(mappedBy = "fournisseur",fetch = FetchType.EAGER)
+    private List<Reactif> reactifs = new ArrayList<>();
 }

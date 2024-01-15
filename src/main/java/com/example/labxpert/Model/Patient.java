@@ -19,6 +19,9 @@ public class Patient extends Person{
 
     private double age;
 
-    @OneToMany(mappedBy = "patient", fetch = FetchType.LAZY)
-    private List<Echontillon> echontillons;
+    private Boolean is_delete;
+
+    @ToString.Exclude
+    @OneToMany(mappedBy = "patient", fetch = FetchType.EAGER)
+    private List<Echontillon> echontillons = new ArrayList<>();
 }

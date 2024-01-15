@@ -5,6 +5,7 @@ import com.example.labxpert.Model.Enum.TypeAnalyse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -38,6 +39,9 @@ public class Analyse {
     private LocalDate date_fin;
     private String commantaires;
 
-    @OneToMany(mappedBy = "analyse", fetch = FetchType.LAZY)
-    private List<SousAnalyse> sousAnalyses;
+    private Boolean is_delete;
+
+    @ToString.Exclude
+    @OneToMany(mappedBy = "analyse", fetch = FetchType.EAGER)
+    private List<SousAnalyse> sousAnalyses = new ArrayList<>();
 }

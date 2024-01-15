@@ -20,6 +20,8 @@ public class Result {
     private double valeur_result;
     private String unite_mesure;
 
+    private Boolean is_delete;
+
     @OneToOne
     private SousAnalyse sousAnalyse;
 }

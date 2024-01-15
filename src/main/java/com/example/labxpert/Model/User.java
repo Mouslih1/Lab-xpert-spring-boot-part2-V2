@@ -4,6 +4,7 @@ import com.example.labxpert.Model.Enum.Role;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -20,9 +21,13 @@ public class User extends Person {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @OneToMany(mappedBy = "technicienResponsable", fetch = FetchType.LAZY)
-    private List<Analyse> analyses;
+    private Boolean is_delete;
 
+    @ToString.Exclude
+    @OneToMany(mappedBy = "technicienResponsable", fetch = FetchType.EAGER)
+    private List<Analyse> analyses = new ArrayList<>();
+
+    @ToString.Exclude
     @OneToMany(mappedBy = "technicien", fetch = FetchType.LAZY)
-    private List<Planification> planifications;
+    private List<Planification> planifications = new ArrayList<>();
 }

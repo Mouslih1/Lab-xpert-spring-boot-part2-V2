@@ -1,18 +1,17 @@
 package com.example.labxpert;
 
 import com.example.labxpert.Model.*;
-import com.example.labxpert.Model.Enum.*;
-import com.example.labxpert.Repository.IPersonRepository;
 import com.example.labxpert.Service.*;
 import lombok.AllArgsConstructor;
-import org.hibernate.Hibernate;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.UUID;
 
 @SpringBootApplication
 @AllArgsConstructor
@@ -234,5 +233,39 @@ public class LabxpertApplication implements CommandLineRunner{
 		iResultService.update(result);
 
 		iResultService.delete(2L);*/
+
+
+		/*System.out.println("********************************");
+		Fournisseur fournisseur = iFournisseurService.getById(3L);
+		System.out.println("*************nom complet************");
+
+		System.out.println(fournisseur.getNameComplet());
+
+		List<Reactif> reactifs = fournisseur.getReactifs();
+
+		System.out.println("*************reactif de cette founisseur************");
+		for (Reactif reactif : reactifs)
+		{
+			System.out.println(reactif);
+		}*/
+
+		/*Fournisseur fournisseur = new Fournisseur();
+		fournisseur.setNameComplet("abdo mouslih");
+		fournisseur.setSocieteName("nan");
+		fournisseur.setIs_delete(false);
+
+		//iFournisseurService.add(fournisseur);*/
+
+		/*Fournisseur fournisseur = iFournisseurService.getById(5L);
+
+		Reactif reactif = new Reactif();
+		reactif.setNom("reactif 11");
+		reactif.setDescription("description 11");
+		reactif.setDate_exp(LocalDate.now());
+		reactif.setIs_delete(false);
+		reactif.setQuantity_stock(20);
+
+		reactif.setFournisseur(fournisseur);
+		iReactifService.add(reactif);*/
 	}
 }

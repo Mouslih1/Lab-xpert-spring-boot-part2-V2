@@ -30,4 +30,6 @@ public class SousAnalyse {
 
     @Enumerated(EnumType.STRING)
     private StatusResult statusResult;
+
+    private Boolean is_delete;
 }

@@ -3,6 +3,7 @@ package com.example.labxpert.Model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -22,6 +23,9 @@ public class Reactif {
     private int quantity_stock;
     private LocalDate date_exp;
 
+    private Boolean is_delete;
+
+    @ToString.Exclude
     @ManyToOne
     private Fournisseur fournisseur;
 }
