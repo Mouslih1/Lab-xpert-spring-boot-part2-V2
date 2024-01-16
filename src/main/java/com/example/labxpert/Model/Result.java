@@ -20,7 +20,8 @@ public class Result {
     private double valeur_result;
     private String unite_mesure;
 
-    private Boolean is_delete;
+    @Column(name = "is_deleted")
+    private Boolean deleted;
 
     @OneToOne
     private SousAnalyse sousAnalyse;

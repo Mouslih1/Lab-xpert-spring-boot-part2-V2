@@ -19,4 +19,6 @@ public class Material {
     private String libelle;
     private int availableQuantity;
     private double price;
+    @Column(name = "is_deleted")
+    private Boolean deleted;
 }

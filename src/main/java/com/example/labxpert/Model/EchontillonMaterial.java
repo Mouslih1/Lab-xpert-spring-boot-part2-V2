@@ -26,4 +26,7 @@ public class EchontillonMaterial {
     private int quantity;
 
     private double price_total;
+
+    @Column(name = "is_deleted")
+    private Boolean deleted;
 }
