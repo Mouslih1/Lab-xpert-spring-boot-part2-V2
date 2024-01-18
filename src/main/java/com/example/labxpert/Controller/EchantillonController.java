@@ -62,7 +62,7 @@ public class EchantillonController {
     }
 
     @GetMapping("/echontillon")
-    public ResponseEntity<EchontillonDto> getByLibelle(@RequestParam String codeEchontillon)
+    public ResponseEntity<EchontillonDto> getByCodeEchontillon(@RequestParam String codeEchontillon)
     {
         try{
             EchontillonDto echontillon = iEchontillonService.getByCodeEchontillon(codeEchontillon);
