@@ -1,5 +1,6 @@
 package com.example.labxpert.Service.Impl;
 
+import com.example.labxpert.Dtos.AnalyseDto;
 import com.example.labxpert.Model.Analyse;
 import com.example.labxpert.Repository.IAnalyseRepository;
 import com.example.labxpert.Service.IAnalyseService;
@@ -18,32 +19,37 @@ public class AnalyseServiceImpl implements IAnalyseService {
 
 
     @Override
-    public Analyse add(Analyse analyse)
+    public AnalyseDto add(AnalyseDto analyseDto)
     {
-        return iAnalyseRepository.save(analyse);
+        return null;
     }
 
     @Override
-    public Analyse update(Analyse analyse)
+    public AnalyseDto update(AnalyseDto analyseDto)
     {
-        return iAnalyseRepository.save(analyse);
+        return null;
     }
 
     @Override
     public void delete(Long id)
     {
-        iAnalyseRepository.deleteById(id);
+        //iAnalyseRepository.deleteById(id);
     }
 
     @Override
-    public List<Analyse> getAll()
+    public List<AnalyseDto> getAll()
     {
-        return iAnalyseRepository.findAll();
+        return null;
     }
 
     @Override
-    public Analyse getById(Long id)
+    public AnalyseDto getById(Long id)
     {
-        return iAnalyseRepository.findById(id).orElse(null);
+        return null;//iAnalyseRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public void validation(AnalyseDto analyseDto) {
+
     }
 }

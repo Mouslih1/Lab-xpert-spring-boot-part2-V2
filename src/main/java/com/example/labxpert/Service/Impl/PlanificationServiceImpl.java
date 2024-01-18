@@ -1,5 +1,6 @@
 package com.example.labxpert.Service.Impl;
 
+import com.example.labxpert.Dtos.PlanificationDto;
 import com.example.labxpert.Model.Planification;
 import com.example.labxpert.Repository.IPlanificationRepository;
 import com.example.labxpert.Service.IPlanificationService;
@@ -17,27 +18,32 @@ public class PlanificationServiceImpl implements IPlanificationService {
 
 
     @Override
-    public Planification add(Planification planification) {
-        return iPlanificationRepository.save(planification);
+    public PlanificationDto add(PlanificationDto planificationDto) {
+        return null;//iPlanificationRepository.save(planification);
     }
 
     @Override
-    public Planification update(Planification planification) {
-        return iPlanificationRepository.save(planification);
+    public PlanificationDto update(PlanificationDto planificationDto) {
+        return null;//iPlanificationRepository.save(planification);
     }
 
     @Override
     public void delete(Long id) {
-        iPlanificationRepository.deleteById(id);
+        //iPlanificationRepository.deleteById(id);
     }
 
     @Override
-    public List<Planification> getAll() {
-        return iPlanificationRepository.findAll();
+    public List<PlanificationDto> getAll() {
+        return null;//iPlanificationRepository.findAll();
     }
 
     @Override
-    public Planification getById(Long id) {
-        return iPlanificationRepository.findById(id).orElse(null);
+    public PlanificationDto getById(Long id) {
+        return null;//iPlanificationRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public void validation(PlanificationDto planificationDto) {
+
     }
 }

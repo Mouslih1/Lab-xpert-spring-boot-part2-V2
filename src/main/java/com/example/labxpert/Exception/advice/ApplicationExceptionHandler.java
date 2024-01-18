@@ -1,5 +1,6 @@
 package com.example.labxpert.Exception.advice;
 
+import com.example.labxpert.Exception.MessageErrorException.MessageError;
 import com.example.labxpert.Exception.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,15 +28,17 @@ public class ApplicationExceptionHandler {
     }
 
     @ExceptionHandler(NotFoundException.class)
-    public ResponseEntity<String> hanldeBusinessException(NotFoundException exception)
+    public ResponseEntity<MessageError> hanldeBusinessException(NotFoundException exception)
     {
-        return new ResponseEntity<>(exception.getMessage() , HttpStatus.NOT_FOUND);
+        MessageError messageError = new MessageError(exception.getMessage());
+        return new ResponseEntity<>(messageError, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(ValidationException.class)
-    public ResponseEntity<String> hanldeValidationException(ValidationException exception)
+    public ResponseEntity<MessageError> hanldeValidationException(ValidationException exception)
     {
         String errorMessage = "Validation service error: " + exception.getMessage();
-        return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
+        MessageError messageError = new MessageError(errorMessage);
+        return new ResponseEntity<>(messageError, HttpStatus.BAD_REQUEST);
     }
 }

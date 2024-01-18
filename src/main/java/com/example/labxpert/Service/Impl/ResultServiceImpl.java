@@ -1,5 +1,6 @@
 package com.example.labxpert.Service.Impl;
 
+import com.example.labxpert.Dtos.ResultDto;
 import com.example.labxpert.Model.Result;
 import com.example.labxpert.Repository.IResultRepository;
 import com.example.labxpert.Service.IResultService;
@@ -17,27 +18,32 @@ public class ResultServiceImpl implements IResultService {
     private IResultRepository iResultRepository;
 
     @Override
-    public Result add(Result result) {
-        return iResultRepository.save(result);
+    public ResultDto add(ResultDto resultDto) {
+        return null; //iResultRepository.save(result);
     }
 
     @Override
     public void delete(Long id) {
-        iResultRepository.deleteById(id);
+        // iResultRepository.deleteById(id);
     }
 
     @Override
-    public Result getById(Long id) {
-        return iResultRepository.findById(id).orElse(null);
+    public ResultDto getById(Long id) {
+        return null;//iResultRepository.findById(id).orElse(null);
     }
 
     @Override
-    public List<Result> getAll() {
-        return iResultRepository.findAll();
+    public List<ResultDto> getAll() {
+        return null;//iResultRepository.findAll();
     }
 
     @Override
-    public Result update(Result result) {
-        return iResultRepository.save(result);
+    public ResultDto update(ResultDto resultDto) {
+        return null;///iResultRepository.save(result);
+    }
+
+    @Override
+    public void validation(ResultDto resultDto) {
+
     }
 }

@@ -20,7 +20,7 @@ public class Fournisseur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nameComplet;
+    private String nom;
     private String societeName;
 
     @Column(name = "is_deleted")

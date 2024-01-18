@@ -1,7 +1,8 @@
 package com.example.labxpert.Service.Impl;
 
+import com.example.labxpert.Dtos.PatientDto;
+import com.example.labxpert.Dtos.UserDto;
 import com.example.labxpert.Model.User;
-import com.example.labxpert.Repository.IPersonRepository;
 import com.example.labxpert.Repository.IUserRepository;
 import com.example.labxpert.Service.IUserService;
 //import com.sun.xml.internal.ws.developer.Serialization;
@@ -20,32 +21,42 @@ public class UserServiceImpl implements IUserService {
 
 
     @Override
-    public User add(User user)
+    public UserDto add(UserDto userDto)
     {
-        return iUserRepository.save(user);
+        return null;//iUserRepository.save(userDto);
     }
 
     @Override
-    public User update(User user)
+    public UserDto  update(UserDto userDto)
     {
-        return iUserRepository.save(user);
+        return null;//iUserRepository.save(user);
     }
 
     @Override
     public void delete(Long id)
     {
-        iUserRepository.deleteById(id);
+        //iUserRepository.deleteById(id);
     }
 
     @Override
-    public List<User> getAll()
+    public List<UserDto> getAll()
     {
-        return iUserRepository.findAll();
+        return null;//iUserRepository.findAll();
     }
 
     @Override
-    public User getById(Long id)
+    public UserDto getById(Long id)
     {
-        return iUserRepository.findById(id).orElse(null);
+        return null;//iUserRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public UserDto getByName(String name) {
+        return null;
+    }
+
+    @Override
+    public void validation(UserDto userDto) {
+
     }
 }

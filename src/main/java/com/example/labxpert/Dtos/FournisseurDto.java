@@ -16,7 +16,7 @@ import java.util.List;
 @Builder
 public class FournisseurDto implements Serializable {
     Long id;
-    String nameComplet;
+    String nom;
     String societeName;
 
     @Builder.Default

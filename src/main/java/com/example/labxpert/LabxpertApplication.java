@@ -15,7 +15,6 @@ import org.springframework.validation.annotation.Validated;
 import java.time.LocalDate;
 import java.util.List;
 
-@Validated
 @SpringBootApplication
 public class LabxpertApplication{
 

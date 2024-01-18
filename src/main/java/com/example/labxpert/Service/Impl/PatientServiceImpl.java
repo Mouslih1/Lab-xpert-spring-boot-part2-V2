@@ -24,7 +24,6 @@ public class PatientServiceImpl implements IPatientService {
     @Override
     public PatientDto add(PatientDto patientDto)
     {
-        //TODO: add validation
         validation(patientDto);
         Patient patientEntity = iPatientRepository.save(modelMapper.map(patientDto,Patient.class));
         return modelMapper.map(patientEntity, PatientDto.class);
@@ -33,7 +32,6 @@ public class PatientServiceImpl implements IPatientService {
     @Override
     public PatientDto update(Long id, PatientDto patientDto)
     {
-        //TODO: add validation
         validation(patientDto);
         Patient patientExist = iPatientRepository.findByIdAndDeletedFalse(id).orElseThrow(() -> new NotFoundException("Patient not found with this id :" + id));
         patientExist.setNom(patientDto.getNom());
@@ -44,7 +42,6 @@ public class PatientServiceImpl implements IPatientService {
         patientExist.setVille(patientDto.getVille());
         patientExist.setAddress(patientDto.getAddress());
         patientExist.setTel(patientDto.getTel());
-        patientExist.setDeleted(patientDto.getDeleted());
         Patient patientUpdated = iPatientRepository.save(patientExist);
         return modelMapper.map(patientUpdated, PatientDto.class);
     }
@@ -116,7 +113,7 @@ public class PatientServiceImpl implements IPatientService {
         }
 
         if (patientDto.getAge() <= 0) {
-            throw new ValidationException("L'âge doit être supérieur à 0 !");
+            throw new ValidationException("L'âge doit être supérieur à 0.");
         }
     }
 }

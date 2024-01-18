@@ -22,6 +22,8 @@ public class Echontillon {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String codeEchontillon;
+
     @ManyToOne
     private Patient patient;
 

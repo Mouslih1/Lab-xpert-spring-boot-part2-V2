@@ -1,5 +1,6 @@
 package com.example.labxpert.Service.Impl;
 
+import com.example.labxpert.Dtos.ReactifDto;
 import com.example.labxpert.Model.Reactif;
 import com.example.labxpert.Repository.IReactifRepository;
 import com.example.labxpert.Service.IReactifService;
@@ -18,27 +19,37 @@ public class ReactifServiceImpl implements IReactifService {
 
 
     @Override
-    public Reactif add(Reactif reactif) {
-        return iReactifRepository.save(reactif);
+    public ReactifDto add(ReactifDto reactif) {
+        return null;//iReactifRepository.save(reactif);
     }
 
     @Override
-    public Reactif update(Reactif reactif) {
-        return iReactifRepository.save(reactif);
+    public ReactifDto update(ReactifDto reactifDto) {
+        return null;//iReactifRepository.save(reactif);
     }
 
     @Override
     public void delete(Long id) {
-        iReactifRepository.deleteById(id);
+        //iReactifRepository.deleteById(id);
     }
 
     @Override
-    public List<Reactif> getAll() {
-        return iReactifRepository.findAll();
+    public List<ReactifDto> getAll() {
+        return null;//iReactifRepository.findAll();
     }
 
     @Override
-    public Reactif getById(Long id) {
-        return iReactifRepository.findById(id).orElse(null);
+    public ReactifDto getById(Long id) {
+        return null;//iReactifRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public ReactifDto getByName(String name) {
+        return null;
+    }
+
+    @Override
+    public void validation(ReactifDto ReactifDto) {
+
     }
 }

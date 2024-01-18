@@ -1,5 +1,6 @@
 package com.example.labxpert.Service.Impl;
 
+import com.example.labxpert.Dtos.FournisseurDto;
 import com.example.labxpert.Model.Fournisseur;
 import com.example.labxpert.Repository.IFournisseurRepository;
 import com.example.labxpert.Service.IFournisseurService;
@@ -18,15 +19,15 @@ public class FournisseurServiceImpl implements IFournisseurService {
 
 
     @Override
-    public Fournisseur add(Fournisseur fournisseur)
+    public FournisseurDto add(FournisseurDto fournisseurDto)
     {
-        return iFournisseurRepository.save(fournisseur);
+        return null;//iFournisseurRepository.save(fournisseur);
     }
 
     @Override
-    public Fournisseur update(Fournisseur fournisseur)
+    public FournisseurDto update(FournisseurDto fournisseurDto)
     {
-        return iFournisseurRepository.save(fournisseur);
+        return null;//iFournisseurRepository.save(fournisseur);
     }
 
     @Override
@@ -36,14 +37,24 @@ public class FournisseurServiceImpl implements IFournisseurService {
     }
 
     @Override
-    public List<Fournisseur> getAll()
+    public List<FournisseurDto> getAll()
     {
-        return iFournisseurRepository.findAll();
+        return null;//iFournisseurRepository.findAll();
     }
 
     @Override
-    public Fournisseur getById(Long id)
+    public FournisseurDto getById(Long id)
     {
-        return iFournisseurRepository.findById(id).orElse(null);
+        return null;//iFournisseurRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public FournisseurDto getByName(String name) {
+        return null;
+    }
+
+    @Override
+    public void validation(FournisseurDto fournisseurDto) {
+
     }
 }

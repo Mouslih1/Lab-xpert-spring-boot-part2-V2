@@ -1,5 +1,6 @@
 package com.example.labxpert.Service.Impl;
 
+import com.example.labxpert.Dtos.SousAnalyseDto;
 import com.example.labxpert.Model.SousAnalyse;
 import com.example.labxpert.Repository.ISousAnalyseRepository;
 import com.example.labxpert.Service.ISousAnalyseService;
@@ -18,27 +19,32 @@ public class SousAnalyseServiceImpl implements ISousAnalyseService {
 
 
     @Override
-    public SousAnalyse add(SousAnalyse sousAnalyse) {
-        return iSousAnalyseRepository.save(sousAnalyse);
+    public SousAnalyseDto add(SousAnalyseDto sousAnalyseDto) {
+        return null;//iSousAnalyseRepository.save(sousAnalyse);
     }
 
     @Override
-    public SousAnalyse update(SousAnalyse sousAnalyse) {
-        return iSousAnalyseRepository.save(sousAnalyse);
+    public SousAnalyseDto update(SousAnalyseDto sousAnalyseDto) {
+        return null;//iSousAnalyseRepository.save(sousAnalyse);
     }
 
     @Override
     public void delete(Long id) {
-        iSousAnalyseRepository.deleteById(id);
+        //iSousAnalyseRepository.deleteById(id);
     }
 
     @Override
-    public List<SousAnalyse> getAll() {
-        return iSousAnalyseRepository.findAll();
+    public List<SousAnalyseDto> getAll() {
+        return null;//iSousAnalyseRepository.findAll();
     }
 
     @Override
-    public SousAnalyse getById(Long id) {
-        return iSousAnalyseRepository.findById(id).orElse(null);
+    public SousAnalyseDto getById(Long id) {
+        return null;//iSousAnalyseRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public void validation(SousAnalyseDto sousAnalyseDto) {
+
     }
 }
