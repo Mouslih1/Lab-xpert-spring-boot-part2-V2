@@ -1,6 +1,5 @@
 package com.example.labxpert.Model;
 
-import com.example.labxpert.Model.Enum.TypeAnalyse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

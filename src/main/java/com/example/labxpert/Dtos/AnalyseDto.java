@@ -1,7 +1,5 @@
 package com.example.labxpert.Dtos;
 
-import com.example.labxpert.Dtos.EchontillonDto;
-import com.example.labxpert.Dtos.UserDto;
 import com.example.labxpert.Model.Analyse;
 import com.example.labxpert.Model.Enum.StatusAnalyse;
 import com.example.labxpert.Model.Enum.StatusResult;

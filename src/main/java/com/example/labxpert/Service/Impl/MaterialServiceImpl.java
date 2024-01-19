@@ -26,7 +26,6 @@ public class MaterialServiceImpl implements IMaterialService {
     @Override
     public MaterialDto add(MaterialDto materialDto)
     {
-        //TODO: add validation
         System.out.println(materialDto);
         validation(materialDto);
         Material material = iMaterialRepository.save(modelMapper.map(materialDto, Material.class));
@@ -36,7 +35,6 @@ public class MaterialServiceImpl implements IMaterialService {
     @Override
     public MaterialDto update(Long id, MaterialDto materialDto)
     {
-        //TODO: add validation
         System.out.println(materialDto);
         validation(materialDto);
         Material materialExist = iMaterialRepository.findByIdAndDeletedFalse(id).orElseThrow(() -> new NotFoundException("Material not found with this id : "+ id));
@@ -76,6 +74,26 @@ public class MaterialServiceImpl implements IMaterialService {
     {
         Material material = iMaterialRepository.findByLibelleAndDeletedFalse(libelle).orElseThrow(() -> new NotFoundException("Material not found with this name : " + libelle));
         return modelMapper.map(material, MaterialDto.class);
+    }
+
+    @Override
+    public List<MaterialDto> getByPriceBefore(double price)
+    {
+        List<Material> materials = iMaterialRepository.findByPriceBeforeAndDeletedFalse(price);
+        return materials
+                .stream()
+                .map(material -> modelMapper.map(material, MaterialDto.class))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<MaterialDto> getByAvailableQuantityBefore(int availableQuantity)
+    {
+        List<Material> materials = iMaterialRepository.findByAvailableQuantityBeforeAndDeletedFalse(availableQuantity);
+        return materials
+                .stream()
+                .map(material -> modelMapper.map(material, MaterialDto.class))
+                .collect(Collectors.toList());
     }
 
     @Override

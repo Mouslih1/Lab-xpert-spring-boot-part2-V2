@@ -1,13 +1,11 @@
 package com.example.labxpert.Dtos;
 
-import com.example.labxpert.Dtos.EchontillonDto;
-import com.example.labxpert.Dtos.MaterialDto;
 import com.example.labxpert.Model.EchontillonMaterial;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
+import javax.validation.constraints.*;
+
 import java.io.Serializable;
 
 /**
@@ -24,17 +22,15 @@ public class EchontillonMaterialDto implements Serializable {
     @NotNull
     EchontillonDto echontillon;
 
-    @NonNull
+    @NotNull
     MaterialDto material;
 
-    @Min(0)
-    @Positive
+    @Min(1)
     int quantity;
 
-    @Min(0)
-    @Positive
-    double price_total;
+    double priceTotal;
 
+    @JsonIgnore
     @Builder.Default
     Boolean deleted = false;
 }

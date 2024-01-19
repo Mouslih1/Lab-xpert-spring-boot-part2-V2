@@ -4,10 +4,7 @@ import com.example.labxpert.Model.Analyse;
 import com.example.labxpert.Model.Echontillon;
 import com.fasterxml.jackson.annotation.*;
 import lombok.*;
-
-import javax.validation.Valid;
-import javax.validation.constraints.FutureOrPresent;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
@@ -25,10 +22,11 @@ public class EchontillonDto implements Serializable {
 
     String codeEchontillon;
 
-    @NotNull
     @JsonIgnoreProperties(value = "echontillons")
+    @NotNull
     PatientDto patient;
 
+    @NotNull
     @FutureOrPresent
     LocalDate date_p;
 

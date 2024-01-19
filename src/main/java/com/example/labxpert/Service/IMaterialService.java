@@ -13,5 +13,7 @@ public interface IMaterialService {
     List<MaterialDto> getAll();
     MaterialDto getById(Long id);
     MaterialDto getByLibelle(String libelle);
+    List<MaterialDto> getByPriceBefore(double price);
+    List<MaterialDto> getByAvailableQuantityBefore(int availableQuantity);
     void validation(MaterialDto materialDto);
 }

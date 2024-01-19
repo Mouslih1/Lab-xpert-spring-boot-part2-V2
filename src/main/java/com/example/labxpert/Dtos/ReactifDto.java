@@ -2,6 +2,7 @@ package com.example.labxpert.Dtos;
 
 import com.example.labxpert.Dtos.FournisseurDto;
 import com.example.labxpert.Model.Reactif;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import java.io.Serializable;
@@ -25,5 +26,6 @@ public class ReactifDto implements Serializable {
     @Builder.Default
     Boolean deleted = false;
 
+    @JsonIgnoreProperties(value = "reactifs")
     List<FournisseurDto> fournisseurs;
 }

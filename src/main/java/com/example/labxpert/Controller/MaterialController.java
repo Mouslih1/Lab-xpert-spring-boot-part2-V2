@@ -62,11 +62,33 @@ public class MaterialController {
         return new ResponseEntity<>(messageError, HttpStatus.OK);
     }
 
-    @GetMapping("/material")
+    @GetMapping("/libelle")
     public ResponseEntity<MaterialDto> getByLibelle(@RequestParam String libelle)
     {
         try{
             MaterialDto materialDto = iMaterialService.getByLibelle(libelle);
+            return new ResponseEntity<>(materialDto, HttpStatus.OK);
+        }catch (NoSuchElementException e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("/price")
+    public ResponseEntity<List<MaterialDto>> getByPriceBefore(@RequestParam double price)
+    {
+        try{
+            List<MaterialDto> materialDto = iMaterialService.getByPriceBefore(price);
+            return new ResponseEntity<>(materialDto, HttpStatus.OK);
+        }catch (NoSuchElementException e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("/available-quantity")
+    public ResponseEntity<List<MaterialDto>> getByAvailableQuantityBefore(@RequestParam int availableQuantity)
+    {
+        try{
+            List<MaterialDto> materialDto = iMaterialService.getByAvailableQuantityBefore(availableQuantity);
             return new ResponseEntity<>(materialDto, HttpStatus.OK);
         }catch (NoSuchElementException e){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

@@ -12,7 +12,6 @@ import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import javax.validation.ValidationException;
 import java.util.List;
 import java.util.UUID;
@@ -29,7 +28,7 @@ public class EchontillonServiceImpl implements IEchontillonService {
     @Override
     public EchontillonDto add(EchontillonDto echontillonDto)
     {
-        validation(echontillonDto);
+        // validation(echontillonDto);
         Patient patientExist = iPatientRepository.findByIdAndDeletedFalse(echontillonDto.getPatient().getId()).orElseThrow(() -> new NotFoundException("Patient not found with this id : " + echontillonDto.getPatient().getId()));
         echontillonDto.setCodeEchontillon("ECHONTILLON-" + UUID.randomUUID()+ "-" + patientExist.getNom().toUpperCase() + "-" + patientExist.getPrenom().toUpperCase());
         echontillonDto.setPatient(modelMapper.map(patientExist, PatientDto.class));
@@ -40,7 +39,7 @@ public class EchontillonServiceImpl implements IEchontillonService {
     @Override
     public EchontillonDto update(Long id, EchontillonDto echontillonDto)
     {
-        validation(echontillonDto);
+         //validation(echontillonDto);
         Echontillon echontillonExist = iEchontillonRepository.findByIdAndDeletedFalse(id).orElseThrow(() -> new NotFoundException("Echontillon not found with this id : " + id));
         Patient patientExist = iPatientRepository.findByIdAndDeletedFalse(echontillonDto.getPatient().getId()).orElseThrow(() -> new NotFoundException("Patient not found with this id : " + id));
         echontillonExist.setPatient(patientExist);

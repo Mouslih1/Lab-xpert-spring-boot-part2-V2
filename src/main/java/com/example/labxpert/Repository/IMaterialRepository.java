@@ -13,4 +13,6 @@ public interface IMaterialRepository extends JpaRepository<Material, Long> {
     List<Material> findByDeletedFalse();
     Optional<Material> findByIdAndDeletedFalse(Long id);
     Optional<Material> findByLibelleAndDeletedFalse(String name);
+    List<Material> findByPriceBeforeAndDeletedFalse(double price);
+    List<Material> findByAvailableQuantityBeforeAndDeletedFalse(int availableQuantity);
 }

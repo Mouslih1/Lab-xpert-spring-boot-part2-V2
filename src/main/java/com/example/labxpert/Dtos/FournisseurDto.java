@@ -2,6 +2,7 @@ package com.example.labxpert.Dtos;
 
 import com.example.labxpert.Model.Fournisseur;
 import com.example.labxpert.Model.Reactif;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import java.io.Serializable;
@@ -16,11 +17,16 @@ import java.util.List;
 @Builder
 public class FournisseurDto implements Serializable {
     Long id;
+
+    @NonNull
     String nom;
+
+    @NonNull
     String societeName;
 
     @Builder.Default
     Boolean deleted = false;
 
+    @JsonIgnoreProperties(value = "fournisseurs")
     List<Reactif> reactifs;
 }

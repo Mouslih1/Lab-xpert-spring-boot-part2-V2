@@ -1,9 +1,7 @@
 package com.example.labxpert.Controller;
 
 import com.example.labxpert.Dtos.EchontillonDto;
-import com.example.labxpert.Dtos.MaterialDto;
 import com.example.labxpert.Exception.MessageErrorException.MessageError;
-import com.example.labxpert.Repository.IEchontillonRepository;
 import com.example.labxpert.Service.IEchontillonService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -28,14 +26,14 @@ public class EchantillonController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<EchontillonDto> save(@RequestBody EchontillonDto echontillonDto)
+    public ResponseEntity<EchontillonDto> save(@RequestBody @Valid EchontillonDto echontillonDto)
     {
         EchontillonDto echontillonSaved = iEchontillonService.add(echontillonDto);
         return new ResponseEntity<>(echontillonSaved, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}/update")
-    public ResponseEntity<EchontillonDto> update(@PathVariable Long id, @RequestBody EchontillonDto echontillonDto)
+    public ResponseEntity<EchontillonDto> update(@PathVariable Long id, @RequestBody @Valid EchontillonDto echontillonDto)
     {
         EchontillonDto echontillonUpdated = iEchontillonService.update(id, echontillonDto);
         return new ResponseEntity<>(echontillonUpdated,HttpStatus.OK);
@@ -61,7 +59,7 @@ public class EchantillonController {
         return new ResponseEntity<>(messageError, HttpStatus.OK);
     }
 
-    @GetMapping("/echontillon")
+    @GetMapping("/code-echontillon")
     public ResponseEntity<EchontillonDto> getByCodeEchontillon(@RequestParam String codeEchontillon)
     {
         try{
@@ -71,5 +69,4 @@ public class EchantillonController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
 }
