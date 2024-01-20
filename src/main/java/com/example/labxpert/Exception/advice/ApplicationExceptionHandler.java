@@ -2,14 +2,19 @@ package com.example.labxpert.Exception.advice;
 
 import com.example.labxpert.Exception.MessageErrorException.MessageError;
 import com.example.labxpert.Exception.NotFoundException;
+import org.hibernate.engine.jdbc.spi.SqlExceptionHelper;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver;
 
 import javax.validation.ValidationException;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,8 +42,21 @@ public class ApplicationExceptionHandler {
     @ExceptionHandler(ValidationException.class)
     public ResponseEntity<MessageError> hanldeValidationException(ValidationException exception)
     {
-        String errorMessage = "Validation service error: " + exception.getMessage();
-        MessageError messageError = new MessageError(errorMessage);
+        MessageError messageError = new MessageError("Validation service error : " + exception.getMessage());
+        return new ResponseEntity<>(messageError, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<MessageError> handleDataIntegrityViolationException(DataIntegrityViolationException exception)
+    {
+        MessageError messageError = new MessageError("Resource already exists : " + exception.getMessage());
+        return new ResponseEntity<>(messageError, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+    public ResponseEntity<MessageError> handleHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException exception)
+    {
+        MessageError messageError = new MessageError(exception.getMessage());
         return new ResponseEntity<>(messageError, HttpStatus.BAD_REQUEST);
     }
 }

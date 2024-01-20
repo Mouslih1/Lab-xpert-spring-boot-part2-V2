@@ -3,6 +3,7 @@ package com.example.labxpert.Model;
 import com.example.labxpert.Model.Enum.StatusAnalyse;
 import com.example.labxpert.Model.Enum.StatusResult;
 import com.example.labxpert.Model.Enum.TypeAnalyse;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,9 +28,6 @@ public class Analyse {
     @ManyToOne
     private User technicienResponsable;
 
-    @ManyToOne
-    private Echontillon echontillon;
-
     @Enumerated(EnumType.STRING)
     private StatusResult statusResult;
 
@@ -43,6 +41,7 @@ public class Analyse {
     @Enumerated(EnumType.STRING)
     private StatusAnalyse statusAnalyse;
 
+    @JsonIgnore
     @Column(name = "is_deleted")
     private Boolean deleted;
 

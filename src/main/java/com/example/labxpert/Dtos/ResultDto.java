@@ -2,6 +2,7 @@ package com.example.labxpert.Dtos;
 
 import com.example.labxpert.Model.Result;
 import com.example.labxpert.Model.SousAnalyse;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import java.io.Serializable;
@@ -19,6 +20,7 @@ public class ResultDto implements Serializable {
     String unite_mesure;
     SousAnalyse sousAnalyse;
 
+    @JsonIgnore
     @Builder.Default
     Boolean deleted = false;
 }

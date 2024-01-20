@@ -7,6 +7,7 @@ import lombok.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,5 +35,7 @@ public class EchontillonDto implements Serializable {
     @Builder.Default
     Boolean deleted = false;
 
-    List<Analyse> analyses;
+    @JsonIgnoreProperties(value = "technicienResponsable")
+    @NotNull
+    List<Analyse> analyses = new ArrayList<>();
 }

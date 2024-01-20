@@ -7,9 +7,7 @@ import com.example.labxpert.Repository.IMaterialRepository;
 import com.example.labxpert.Service.IMaterialService;
 import io.micrometer.core.instrument.util.StringUtils;
 import lombok.AllArgsConstructor;
-import org.apache.el.stream.Stream;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.validation.ValidationException;
@@ -26,7 +24,6 @@ public class MaterialServiceImpl implements IMaterialService {
     @Override
     public MaterialDto add(MaterialDto materialDto)
     {
-        System.out.println(materialDto);
         validation(materialDto);
         Material material = iMaterialRepository.save(modelMapper.map(materialDto, Material.class));
         return modelMapper.map(material, MaterialDto.class);
@@ -35,7 +32,6 @@ public class MaterialServiceImpl implements IMaterialService {
     @Override
     public MaterialDto update(Long id, MaterialDto materialDto)
     {
-        System.out.println(materialDto);
         validation(materialDto);
         Material materialExist = iMaterialRepository.findByIdAndDeletedFalse(id).orElseThrow(() -> new NotFoundException("Material not found with this id : "+ id));
         materialExist.setLibelle(materialDto.getLibelle());

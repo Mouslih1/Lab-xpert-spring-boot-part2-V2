@@ -4,6 +4,7 @@ import com.example.labxpert.Dtos.AnalyseDto;
 import com.example.labxpert.Dtos.ReactifDto;
 import com.example.labxpert.Model.Enum.StatusResult;
 import com.example.labxpert.Model.SousAnalyse;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import java.io.Serializable;
@@ -16,6 +17,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Builder
 public class SousAnalyseDto implements Serializable {
+
     Long id;
     String title;
     double etat_normal_max;
@@ -24,6 +26,7 @@ public class SousAnalyseDto implements Serializable {
     ReactifDto reactif;
     StatusResult statusResult;
 
+    @JsonIgnore
     @Builder.Default
     Boolean deleted = false;
 }

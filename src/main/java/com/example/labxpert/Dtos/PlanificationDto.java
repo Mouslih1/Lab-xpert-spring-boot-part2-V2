@@ -3,6 +3,7 @@ package com.example.labxpert.Dtos;
 import com.example.labxpert.Dtos.AnalyseDto;
 import com.example.labxpert.Dtos.UserDto;
 import com.example.labxpert.Model.Planification;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import java.io.Serializable;
@@ -22,6 +23,7 @@ public class PlanificationDto implements Serializable {
     LocalDate date_debut;
     LocalDate date_fin;
 
+    @JsonIgnore
     @Builder.Default
     Boolean deleted = false;
 }

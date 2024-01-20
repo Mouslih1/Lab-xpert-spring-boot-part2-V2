@@ -1,5 +1,6 @@
 package com.example.labxpert.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ public class Fournisseur {
     private String nom;
     private String societeName;
 
+    @JsonIgnore
     @Column(name = "is_deleted")
     private Boolean deleted;
 

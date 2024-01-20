@@ -1,5 +1,6 @@
 package com.example.labxpert.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,10 +29,10 @@ public class Echontillon {
 
     private LocalDate date_p;
 
+    @JsonIgnore
     @Column(name = "is_deleted")
     private Boolean deleted;
 
-    @ToString.Exclude
-    @OneToMany(mappedBy = "echontillon", fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Analyse> analyses = new ArrayList<>();
 }

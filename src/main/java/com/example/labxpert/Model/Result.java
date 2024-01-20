@@ -1,5 +1,6 @@
 package com.example.labxpert.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ public class Result {
     private double valeur_result;
     private String unite_mesure;
 
+    @JsonIgnore
     @Column(name = "is_deleted")
     private Boolean deleted;
 

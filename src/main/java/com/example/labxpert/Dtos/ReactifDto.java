@@ -2,6 +2,7 @@ package com.example.labxpert.Dtos;
 
 import com.example.labxpert.Dtos.FournisseurDto;
 import com.example.labxpert.Model.Reactif;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
@@ -23,6 +24,7 @@ public class ReactifDto implements Serializable {
     int quantity_stock;
     LocalDate date_exp;
 
+    @JsonIgnore
     @Builder.Default
     Boolean deleted = false;
 
