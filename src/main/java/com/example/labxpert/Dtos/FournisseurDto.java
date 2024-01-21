@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
@@ -20,10 +21,10 @@ import java.util.List;
 public class FournisseurDto implements Serializable {
     Long id;
 
-    @NotNull
+    @NotBlank
     String nom;
 
-    @NotNull
+    @NotBlank
     String societeName;
 
     @JsonIgnore
@@ -31,5 +32,5 @@ public class FournisseurDto implements Serializable {
     Boolean deleted = false;
 
     @JsonIgnoreProperties(value = "fournisseurs")
-    List<Reactif> reactifs;
+    List<ReactifDto> reactifs;
 }

@@ -37,5 +37,5 @@ public class EchontillonDto implements Serializable {
 
     @JsonIgnoreProperties(value = "technicienResponsable")
     @NotNull
-    List<Analyse> analyses = new ArrayList<>();
+    List<AnalyseDto> analyses = new ArrayList<>();
 }

@@ -24,8 +24,8 @@ public class Reactif {
 
     private String nom;
     private String description;
-    private int quantity_stock;
-    private LocalDate date_exp;
+    private int quantityStock;
+    private LocalDate dateExp;
 
 
     @ManyToMany(fetch = FetchType.EAGER)

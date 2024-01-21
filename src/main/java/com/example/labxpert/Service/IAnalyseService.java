@@ -5,6 +5,7 @@ import com.example.labxpert.Dtos.MaterialDto;
 import com.example.labxpert.Model.Analyse;
 import com.example.labxpert.Model.Enum.TypeAnalyse;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface IAnalyseService {
@@ -14,6 +15,7 @@ public interface IAnalyseService {
     List<AnalyseDto> getAll();
     AnalyseDto getById(Long id);
     AnalyseDto getByTypeAnalyse(TypeAnalyse typeAnalyse);
+    List<AnalyseDto> getByDateBetween(LocalDate dateStart, LocalDate dateEnd);
     void validation(AnalyseDto analyseDto);
 
 }

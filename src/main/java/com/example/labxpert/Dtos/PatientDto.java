@@ -41,7 +41,7 @@ public class PatientDto implements Serializable {
     Sexe sexe;
 
     @Past
-    LocalDate date_naissance;
+    LocalDate dateNaissance;
 
     @Min(18)
     @Max(80)
@@ -52,5 +52,5 @@ public class PatientDto implements Serializable {
     Boolean deleted = false;
 
     @JsonIgnoreProperties(value = "patient")
-    List<Echontillon> echontillons;
+    List<EchontillonDto> echontillons;
 }

@@ -2,6 +2,7 @@ package com.example.labxpert.Model;
 
 import com.example.labxpert.Model.Enum.Role;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;

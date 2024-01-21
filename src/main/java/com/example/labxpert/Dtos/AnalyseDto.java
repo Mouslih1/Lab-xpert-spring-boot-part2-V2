@@ -43,15 +43,16 @@ public class AnalyseDto implements Serializable {
     StatusResult statusResult;
 
     @NotNull
-    LocalDate date_debut;
+    LocalDate dateDebut;
 
     @NotNull
     @FutureOrPresent
-    LocalDate date_fin;
+    LocalDate dateFin;
 
     @JsonIgnore
     @Builder.Default
     Boolean deleted = false;
 
-    List<SousAnalyse> sousAnalyses;
+    @JsonIgnoreProperties(value = "analyse")
+    List<SousAnalyseDto> sousAnalyses;
 }

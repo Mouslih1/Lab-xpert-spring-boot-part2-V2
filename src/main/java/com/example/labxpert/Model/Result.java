@@ -18,8 +18,8 @@ public class Result {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private double valeur_result;
-    private String unite_mesure;
+    private double valeurResult;
+    private String uniteMesure;
 
     @JsonIgnore
     @Column(name = "is_deleted")

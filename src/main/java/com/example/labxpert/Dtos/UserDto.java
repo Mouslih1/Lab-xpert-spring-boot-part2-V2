@@ -6,6 +6,7 @@ import com.example.labxpert.Model.Enum.Sexe;
 import com.example.labxpert.Model.Planification;
 import com.example.labxpert.Model.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import org.hibernate.validator.constraints.UniqueElements;
 
@@ -46,7 +47,7 @@ public class UserDto implements Serializable {
 
     @NotNull
     @Past
-    LocalDate date_naissance;
+    LocalDate dateNaissance;
 
     @NotNull
     @Email
@@ -63,6 +64,8 @@ public class UserDto implements Serializable {
     @Builder.Default
     Boolean deleted = false;
 
-    List<Analyse> analyses;
-    List<Planification> planifications;
+    @JsonIgnoreProperties(value = "technicienResponsable")
+    List<AnalyseDto> analyses;
+    @JsonIgnoreProperties(value = "technicien")
+    List<PlanificationDto> planifications;
 }

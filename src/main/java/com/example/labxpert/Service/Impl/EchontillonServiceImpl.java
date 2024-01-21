@@ -35,13 +35,13 @@ public class EchontillonServiceImpl implements IEchontillonService {
     {
         validation(echontillonDto);
 
-        List<Analyse> analyses = new ArrayList<>();
+        List<AnalyseDto> analyses = new ArrayList<>();
 
-        for (Analyse analyse : echontillonDto.getAnalyses())
+        for (AnalyseDto analyse : echontillonDto.getAnalyses())
         {
             //TODO: CHECK IF ANALYSES EFFECT TO ECHONTILLON EXIST IN SYSTEM
             Analyse analyseExist = iAnalyseRepository.findByIdAndDeletedFalse(analyse.getId()).orElseThrow(() -> new NotFoundException("Analyse not found with this id : " + analyse.getId()));
-            analyses.add(analyseExist);
+            analyses.add(modelMapper.map(analyseExist, AnalyseDto.class));
         }
 
         //TODO: ADD ANALYSES AFFECTER TO ECHONTILLON FOR RETURN OBJECT COMPLET NOT NULL
@@ -65,7 +65,8 @@ public class EchontillonServiceImpl implements IEchontillonService {
         Patient patientExist = iPatientRepository.findByIdAndDeletedFalse(echontillonDto.getPatient().getId()).orElseThrow(() -> new NotFoundException("Patient not found with this id : " + id));
 
         List<Analyse> analyses = new ArrayList<>();
-        for (Analyse analyse : echontillonDto.getAnalyses())
+
+        for (AnalyseDto analyse : echontillonDto.getAnalyses())
         {
             Analyse analyseExist = iAnalyseRepository.findByIdAndDeletedFalse(analyse.getId()).orElseThrow(() -> new NotFoundException("Analyse not found with this id : " + analyse.getId()));
             analyses.add(analyseExist);
@@ -73,7 +74,7 @@ public class EchontillonServiceImpl implements IEchontillonService {
 
         echontillonExist.setPatient(patientExist);
         echontillonExist.setDate_p(echontillonDto.getDate_p());
-        echontillonDto.setAnalyses(analyses);
+        echontillonExist.setAnalyses(analyses);
         Echontillon echontillonUpdated = iEchontillonRepository.save(echontillonExist);
         return modelMapper.map(echontillonUpdated, EchontillonDto.class);
     }

@@ -27,7 +27,7 @@ class IPatientRepositoryTest {
         patient.setTel("0630011246");
         patient.setSexe(Sexe.MALE);
         patient.setAddress("address 1");
-        patient.setDate_naissance(LocalDate.of(2001,8,19));
+        patient.setDateNaissance(LocalDate.of(2001,8,19));
         patient.setVille("casablanca");
         patient.setDeleted(false);
         patient.setAge(21);
@@ -46,7 +46,7 @@ class IPatientRepositoryTest {
         patient.setTel("0630011246");
         patient.setSexe(Sexe.MALE);
         patient.setAddress("address 1");
-        patient.setDate_naissance(LocalDate.of(2001,8,19));
+        patient.setDateNaissance(LocalDate.of(2001,8,19));
         patient.setVille("casablanca");
         patient.setDeleted(false);
         patient.setAge(21);
@@ -67,7 +67,7 @@ class IPatientRepositoryTest {
         patient.setTel("0630011246");
         patient.setSexe(Sexe.MALE);
         patient.setAddress("address 1");
-        patient.setDate_naissance(LocalDate.of(2001,8,19));
+        patient.setDateNaissance(LocalDate.of(2001,8,19));
         patient.setVille("casablanca");
         patient.setDeleted(false);
         patient.setAge(21);
@@ -87,7 +87,7 @@ class IPatientRepositoryTest {
         patient1.setTel("0630011246");
         patient1.setSexe(Sexe.MALE);
         patient1.setAddress("address 1");
-        patient1.setDate_naissance(LocalDate.of(2001,8,19));
+        patient1.setDateNaissance(LocalDate.of(2001,8,19));
         patient1.setVille("casablanca");
         patient1.setDeleted(false);
         patient1.setAge(21);
@@ -98,7 +98,7 @@ class IPatientRepositoryTest {
         patient2.setTel("0630011246");
         patient2.setSexe(Sexe.MALE);
         patient2.setAddress("address 1");
-        patient2.setDate_naissance(LocalDate.of(2005,8,19));
+        patient2.setDateNaissance(LocalDate.of(2005,8,19));
         patient2.setVille("casablanca");
         patient2.setDeleted(false);
         patient2.setAge(21);
@@ -109,7 +109,7 @@ class IPatientRepositoryTest {
         patient3.setTel("0630011246");
         patient3.setSexe(Sexe.MALE);
         patient3.setAddress("address 1");
-        patient3.setDate_naissance(LocalDate.of(2007,8,19));
+        patient3.setDateNaissance(LocalDate.of(2007,8,19));
         patient3.setVille("casablanca");
         patient3.setDeleted(false);
         patient3.setAge(21);
@@ -132,7 +132,7 @@ class IPatientRepositoryTest {
         patient.setTel("0630011246");
         patient.setSexe(Sexe.MALE);
         patient.setAddress("address 1");
-        patient.setDate_naissance(LocalDate.of(2001,8,19));
+        patient.setDateNaissance(LocalDate.of(2001,8,19));
         patient.setVille("casablanca");
         patient.setDeleted(false);
         patient.setAge(21);
@@ -151,7 +151,7 @@ class IPatientRepositoryTest {
         patient.setTel("0630011246");
         patient.setSexe(Sexe.MALE);
         patient.setAddress("address 1");
-        patient.setDate_naissance(LocalDate.of(2001,8,19));
+        patient.setDateNaissance(LocalDate.of(2001,8,19));
         patient.setVille("casablanca");
         patient.setDeleted(false);
         patient.setAge(21);

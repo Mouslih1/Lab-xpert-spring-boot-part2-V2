@@ -38,7 +38,7 @@ public class PatientServiceImpl implements IPatientService {
         patientExist.setPrenom(patientDto.getPrenom());
         patientExist.setAge(patientDto.getAge());
         patientExist.setSexe(patientDto.getSexe());
-        patientExist.setDate_naissance(patientDto.getDate_naissance());
+        patientExist.setDateNaissance(patientDto.getDateNaissance());
         patientExist.setVille(patientDto.getVille());
         patientExist.setAddress(patientDto.getAddress());
         patientExist.setTel(patientDto.getTel());
@@ -108,7 +108,7 @@ public class PatientServiceImpl implements IPatientService {
             throw new javax.validation.ValidationException("Le sexe est requise.");
         }
 
-        if (patientDto.getDate_naissance() == null) {
+        if (patientDto.getDateNaissance() == null) {
             throw new ValidationException("La date de naissance est requise.");
         }
 

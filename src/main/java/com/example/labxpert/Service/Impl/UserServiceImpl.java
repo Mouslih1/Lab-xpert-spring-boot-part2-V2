@@ -45,7 +45,7 @@ public class UserServiceImpl implements IUserService {
         userExist.setSexe(userDto.getSexe());
         userExist.setAddress(userDto.getAddress());
         userExist.setPassword(userDto.getPassword());
-        userExist.setDate_naissance(userDto.getDate_naissance());
+        userExist.setDateNaissance(userDto.getDateNaissance());
         userExist.setVille(userDto.getVille());
         userExist.setTel(userDto.getTel());
 
@@ -127,7 +127,7 @@ public class UserServiceImpl implements IUserService {
             throw new ValidationException("Le sexe est requise.");
         }
 
-        if (userDto.getDate_naissance() == null) {
+        if (userDto.getDateNaissance() == null) {
             throw new ValidationException("La date de naissance est requise.");
         }
 

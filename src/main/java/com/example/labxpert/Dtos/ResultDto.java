@@ -5,6 +5,8 @@ import com.example.labxpert.Model.SousAnalyse;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -16,9 +18,15 @@ import java.io.Serializable;
 @Builder
 public class ResultDto implements Serializable {
     Long id;
-    double valeur_result;
-    String unite_mesure;
-    SousAnalyse sousAnalyse;
+
+    @NotNull
+    double valeurResult;
+
+    @NotBlank
+    String uniteMesure;
+
+    @NotNull
+    SousAnalyseDto sousAnalyse;
 
     @JsonIgnore
     @Builder.Default

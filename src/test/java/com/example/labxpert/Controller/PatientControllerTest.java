@@ -56,7 +56,7 @@ class PatientControllerTest {
         patient.setTel("0630011246");
         patient.setSexe(Sexe.MALE);
         patient.setAddress("address 1");
-        patient.setDate_naissance(LocalDate.of(2001,8,19));
+        patient.setDateNaissance(LocalDate.of(2001,8,19));
         patient.setVille("casablanca");
         patient.setDeleted(false);
         patient.setAge(21);
@@ -68,7 +68,7 @@ class PatientControllerTest {
         patientDto.setTel("0630011246");
         patientDto.setSexe(Sexe.MALE);
         patientDto.setAddress("address 1");
-        patientDto.setDate_naissance(LocalDate.of(2001,8,19));
+        patientDto.setDateNaissance(LocalDate.of(2001,8,19));
         patientDto.setVille("casablanca");
         patient.setDeleted(false);
         patientDto.setAge(21);
@@ -88,7 +88,8 @@ class PatientControllerTest {
     }
 
     @Test
-    public void patientController_getAllPatient_ReturnMoreThanPatient() throws Exception {
+    public void patientController_getAllPatient_ReturnMoreThanPatient() throws Exception
+    {
         when(patientService.getAll()).thenReturn(Collections.singletonList(patientDto));
 
         ResultActions response = mockMvc.perform(get("/api/v1/patient/all")

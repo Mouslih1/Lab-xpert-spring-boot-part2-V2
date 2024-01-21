@@ -20,8 +20,8 @@ public class SousAnalyse {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
-    private double etat_normal_max;
-    private double etat_normal_min;
+    private double etatNormalMax;
+    private double etatNormalMin;
 
     @ManyToOne
     private Analyse analyse;

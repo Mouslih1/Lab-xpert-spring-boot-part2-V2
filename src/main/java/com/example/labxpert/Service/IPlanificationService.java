@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface IPlanificationService {
     PlanificationDto add(PlanificationDto planificationDto);
-    PlanificationDto update(PlanificationDto planificationDto);
+    PlanificationDto update(Long id, PlanificationDto planificationDto);
     void delete(Long id);
     List<PlanificationDto> getAll();
     PlanificationDto getById(Long id);

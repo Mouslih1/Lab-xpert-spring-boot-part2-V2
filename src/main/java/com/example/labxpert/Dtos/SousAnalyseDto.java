@@ -5,8 +5,11 @@ import com.example.labxpert.Dtos.ReactifDto;
 import com.example.labxpert.Model.Enum.StatusResult;
 import com.example.labxpert.Model.SousAnalyse;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -19,11 +22,23 @@ import java.io.Serializable;
 public class SousAnalyseDto implements Serializable {
 
     Long id;
+
+    @NotBlank
     String title;
-    double etat_normal_max;
-    double etat_normal_min;
+
+    @NotNull
+    double etatNormalMax;
+
+    @NotNull
+    double etatNormalMin;
+
+    @JsonIgnoreProperties(value = "sousAnalyses")
+    @NotNull
     AnalyseDto analyse;
+
+    @NotNull
     ReactifDto reactif;
+
     StatusResult statusResult;
 
     @JsonIgnore

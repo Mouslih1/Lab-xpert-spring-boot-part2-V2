@@ -5,11 +5,13 @@ import com.example.labxpert.Exception.MessageErrorException.MessageError;
 import com.example.labxpert.Model.Enum.TypeAnalyse;
 import com.example.labxpert.Service.IAnalyseService;
 import lombok.AllArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -60,11 +62,22 @@ public class AnalyseController {
     }
 
     @GetMapping("/type-analyse")
-    public ResponseEntity<AnalyseDto> getByTypeAnalyse(TypeAnalyse typeAnalyse)
+    public ResponseEntity<AnalyseDto> getByTypeAnalyse(@RequestParam(name = "type-analyse") TypeAnalyse typeAnalyse)
     {
         try{
             AnalyseDto analyse = iAnalyseService.getByTypeAnalyse(typeAnalyse);
             return new ResponseEntity<>(analyse, HttpStatus.OK);
+        }catch (NoSuchElementException e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("/date")
+    public ResponseEntity<List<AnalyseDto>> getByDateBetween(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @RequestParam(name = "date-start") LocalDate dateStart, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @RequestParam(name = "date-end") LocalDate dateEnd)
+    {
+        try{
+            List<AnalyseDto> analyses = iAnalyseService.getByDateBetween(dateStart, dateEnd);
+            return new ResponseEntity<>(analyses, HttpStatus.OK);
         }catch (NoSuchElementException e){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

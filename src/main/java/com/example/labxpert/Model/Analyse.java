@@ -4,6 +4,7 @@ import com.example.labxpert.Model.Enum.StatusAnalyse;
 import com.example.labxpert.Model.Enum.StatusResult;
 import com.example.labxpert.Model.Enum.TypeAnalyse;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,8 +35,8 @@ public class Analyse {
     @Enumerated(EnumType.STRING)
     private TypeAnalyse typeAnalyse;
 
-    private LocalDate date_debut;
-    private LocalDate date_fin;
+    private LocalDate dateDebut;
+    private LocalDate dateFin;
     private String commantaires;
 
     @Enumerated(EnumType.STRING)

@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import javax.validation.ValidationException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -51,8 +52,8 @@ public class AnalyseServiceImpl implements IAnalyseService {
         analyseExist.setTypeAnalyse(analyseDto.getTypeAnalyse());
         analyseExist.setCommantaires(analyseDto.getCommantaires());
         analyseExist.setStatusResult(analyseDto.getStatusResult());
-        analyseExist.setDate_debut(analyseDto.getDate_debut());
-        analyseExist.setDate_fin(analyseDto.getDate_fin());
+        analyseExist.setDateDebut(analyseDto.getDateDebut());
+        analyseExist.setDateFin(analyseDto.getDateFin());
         analyseExist.setTechnicienResponsable(userExist);
 
         Analyse analyseUpdated = iAnalyseRepository.save(analyseExist);
@@ -91,6 +92,15 @@ public class AnalyseServiceImpl implements IAnalyseService {
     }
 
     @Override
+    public List<AnalyseDto> getByDateBetween(LocalDate dateStart, LocalDate dateEnd)
+    {
+        List<Analyse> analyses = iAnalyseRepository.findByDateDebutBetween(dateStart, dateEnd);
+        return analyses.stream()
+                .map(analyse -> modelMapper.map(analyse, AnalyseDto.class))
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public void validation(AnalyseDto analyseDto)
     {
         if (analyseDto == null) {
@@ -114,11 +124,11 @@ public class AnalyseServiceImpl implements IAnalyseService {
             throw new ValidationException("Le status analyse est requise.");
         }
 
-        if (analyseDto.getDate_debut() == null) {
+        if (analyseDto.getDateDebut() == null) {
             throw new ValidationException("La date début est requise.");
         }
 
-        if (analyseDto.getDate_fin() == null) {
+        if (analyseDto.getDateFin() == null) {
             throw new ValidationException("La date fin est requise.");
         }
     }
