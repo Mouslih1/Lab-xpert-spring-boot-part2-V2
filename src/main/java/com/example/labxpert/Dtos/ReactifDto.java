@@ -13,6 +13,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -43,6 +44,7 @@ public class ReactifDto implements Serializable {
     @Builder.Default
     Boolean deleted = false;
 
+    @NotNull
     @JsonIgnoreProperties(value = "reactifs")
-    List<FournisseurDto> fournisseurs;
+    List<FournisseurDto> fournisseurs = new ArrayList<>();
 }

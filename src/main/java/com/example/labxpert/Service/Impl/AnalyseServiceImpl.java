@@ -51,7 +51,7 @@ public class AnalyseServiceImpl implements IAnalyseService {
 
         analyseExist.setTypeAnalyse(analyseDto.getTypeAnalyse());
         analyseExist.setCommantaires(analyseDto.getCommantaires());
-        analyseExist.setStatusResult(analyseDto.getStatusResult());
+        analyseExist.setStatusAnalyse(analyseDto.getStatusAnalyse());
         analyseExist.setDateDebut(analyseDto.getDateDebut());
         analyseExist.setDateFin(analyseDto.getDateFin());
         analyseExist.setTechnicienResponsable(userExist);
