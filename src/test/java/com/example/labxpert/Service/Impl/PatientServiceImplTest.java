@@ -1,4 +1,4 @@
-package com.example.labxpert.Service;
+package com.example.labxpert.Service.Impl;
 
 import com.example.labxpert.Dtos.PatientDto;
 import com.example.labxpert.Model.Enum.Sexe;

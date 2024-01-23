@@ -13,4 +13,5 @@ public interface IEchontillonRepository extends JpaRepository<Echontillon, Long>
     List<Echontillon> findByDeletedFalse();
     Optional<Echontillon> findByIdAndDeletedFalse(Long id);
     Optional<Echontillon> findByCodeEchontillonAndDeletedFalse(String codeEchontillon);
+
 }
