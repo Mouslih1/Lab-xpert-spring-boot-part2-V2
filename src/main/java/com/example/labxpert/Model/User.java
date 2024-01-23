@@ -19,6 +19,7 @@ import java.util.List;
 @Table(name = "users")
 public class User extends Person {
 
+    @Column(unique = true)
     private String email;
     private String password;
 

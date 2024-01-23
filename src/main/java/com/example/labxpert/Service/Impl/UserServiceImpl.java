@@ -28,6 +28,7 @@ public class UserServiceImpl implements IUserService {
     public UserDto add(UserDto userDto)
     {
         validation(userDto);
+        checkExistEmail(userDto);
         User user = iUserRepository.save(modelMapper.map(userDto, User.class));
         return modelMapper.map(user, UserDto.class);
     }
@@ -36,7 +37,11 @@ public class UserServiceImpl implements IUserService {
     public UserDto  update(Long id, UserDto userDto)
     {
         validation(userDto);
+
         User userExist = iUserRepository.findByIdAndDeletedFalse(id).orElseThrow(() -> new NotFoundException("User not found with this id : " + id));
+        //TODO: CHECK SI EMAIL FOURNI EQUAL EMAIL OF USER EXIST SI NO EQUAL CHECK EMAIL EXIST IN SYSTEM OR NOT ;
+        SiNoEqualCheckEmailExist(userExist, userDto);
+
         userExist.setNom(userDto.getNom());
         userExist.setEmail(userDto.getEmail());
         userExist.setRole(userDto.getRole());
@@ -96,6 +101,24 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
+    public void checkExistEmail(UserDto userDto)
+    {
+        if(userDto.getEmail().equals(getByEmail(userDto.getEmail())))
+        {
+            throw new EmailDuplicateRecordException("Email already exist in system.");
+        }
+    }
+
+    @Override
+    public void SiNoEqualCheckEmailExist(User userExist, UserDto userDto)
+    {
+        if (!userDto.getEmail().equals(userExist.getEmail()))
+        {
+            checkExistEmail(userDto);
+        }
+    }
+
+    @Override
     public void validation(UserDto userDto)
     {
         if (userDto == null) {
@@ -132,11 +155,6 @@ public class UserServiceImpl implements IUserService {
 
         if (userDto.getEmail() == null) {
             throw new ValidationException("Email est requise.");
-        }
-
-        if(userDto.getEmail().equals(getByEmail(userDto.getEmail())))
-        {
-            throw new EmailDuplicateRecordException("Email already exist in system.");
         }
 
         if (userDto.getPassword() == null) {
