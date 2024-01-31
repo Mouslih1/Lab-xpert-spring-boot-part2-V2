@@ -11,5 +11,5 @@ import java.util.Optional;
 public interface IPatientRepository extends JpaRepository<Patient,Long> {
     List<Patient> findByDeletedFalse();
     Optional<Patient> findByIdAndDeletedFalse(Long id);
-    Optional<Patient> findByNomAndDeletedFalse(String name);
+    List<Patient> findByNomAndDeletedFalse(String name);
 }

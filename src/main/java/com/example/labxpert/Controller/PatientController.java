@@ -51,11 +51,11 @@ public class PatientController {
     }
 
     @GetMapping("/patient")
-    public ResponseEntity<PatientDto> getByName(@RequestParam String name)
+    public ResponseEntity<List<PatientDto>> getByName(@RequestParam String name)
     {
         try{
-            PatientDto patient = iPatientService.getByName(name);
-            return  new ResponseEntity<>(patient, HttpStatus.OK);
+            List<PatientDto> patients = iPatientService.getByName(name);
+            return  new ResponseEntity<>(patients, HttpStatus.OK);
         }catch (NoSuchElementException e){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

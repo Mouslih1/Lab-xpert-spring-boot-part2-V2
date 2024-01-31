@@ -73,7 +73,7 @@ public class EchontillonServiceImpl implements IEchontillonService {
         }
 
         echontillonExist.setPatient(patientExist);
-        echontillonExist.setDate_p(echontillonDto.getDate_p());
+        echontillonExist.setDatePrelevement(echontillonDto.getDatePrelevement());
         echontillonExist.setAnalyses(analyses);
         Echontillon echontillonUpdated = iEchontillonRepository.save(echontillonExist);
         return modelMapper.map(echontillonUpdated, EchontillonDto.class);
@@ -122,7 +122,7 @@ public class EchontillonServiceImpl implements IEchontillonService {
             throw new ValidationException("L'ID du patient est requise.");
         }
 
-        if (echontillonDto.getDate_p() == null) {
+        if (echontillonDto.getDatePrelevement() == null) {
             throw new ValidationException("La date de prélèvement est requise.");
         }
 

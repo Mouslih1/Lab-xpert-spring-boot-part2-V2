@@ -29,7 +29,7 @@ public class EchontillonDto implements Serializable {
 
     @NotNull
     @FutureOrPresent
-    LocalDate date_p;
+    LocalDate datePrelevement;
 
     @JsonIgnore
     @Builder.Default

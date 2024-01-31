@@ -12,6 +12,6 @@ public interface IPatientService {
     void delete(Long id);
     List<PatientDto> getAll();
     PatientDto getById(Long id);
-    PatientDto getByName(String name);
+    List<PatientDto> getByName(String name);
     void validation(PatientDto patientDto);
 }

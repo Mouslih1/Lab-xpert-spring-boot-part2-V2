@@ -14,6 +14,7 @@ import java.util.NoSuchElementException;
 
 @RestController
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/v1/echontillons")
 public class EchantillonController {
 

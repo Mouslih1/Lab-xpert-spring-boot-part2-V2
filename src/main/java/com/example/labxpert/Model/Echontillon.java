@@ -27,12 +27,12 @@ public class Echontillon {
     @ManyToOne
     private Patient patient;
 
-    private LocalDate date_p;
+    private LocalDate datePrelevement;
 
     @JsonIgnore
     @Column(name = "is_deleted")
     private Boolean deleted;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Analyse> analyses = new ArrayList<>();
 }

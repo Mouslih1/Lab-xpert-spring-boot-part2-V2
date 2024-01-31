@@ -72,9 +72,12 @@ public class PatientServiceImpl implements IPatientService {
     }
 
     @Override
-    public PatientDto getByName(String name) {
-        Patient patient = iPatientRepository.findByNomAndDeletedFalse(name).orElseThrow(() -> new NotFoundException("Patient not found with name :" + name));
-        return modelMapper.map(patient, PatientDto.class);
+    public List<PatientDto> getByName(String name) {
+        List<Patient> patients = iPatientRepository.findByNomAndDeletedFalse(name);
+        return patients
+                .stream()
+                .map(patient -> modelMapper.map(patient, PatientDto.class))
+                .collect(Collectors.toList());
     }
 
     @Override

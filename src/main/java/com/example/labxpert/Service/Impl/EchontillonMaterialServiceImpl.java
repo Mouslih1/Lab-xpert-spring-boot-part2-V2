@@ -80,11 +80,14 @@ public class EchontillonMaterialServiceImpl implements IEchontillonMaterialServi
 
         validationQuantity(materialExist.getAvailableQuantity(), echontillonMaterialDto.getQuantity());
 
+        materialExist.setAvailableQuantity(materialExist.getAvailableQuantity() - echontillonMaterialDto.getQuantity());
+        iMaterialRepository.save(materialExist);
+
         echontillonMaterialExist.setQuantity(echontillonMaterialDto.getQuantity());
         echontillonMaterialExist.setPriceTotal(echontillonMaterialDto.getQuantity() * materialExist.getPrice());
 
         //TODO: THIS FOR soustracter THE NEW QUANTITY UPDATER
-        substractionNewQuantityToAvailableQuantity(materialExist, echontillonMaterialDto);
+        // substractionNewQuantityToAvailableQuantity(materialExist, echontillonMaterialDto);
 
         EchontillonMaterial echontillonMaterialSaved = iEchontillonMaterialRepository.save(echontillonMaterialExist);
 
