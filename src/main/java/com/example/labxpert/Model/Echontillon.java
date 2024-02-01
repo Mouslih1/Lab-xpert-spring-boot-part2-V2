@@ -33,6 +33,6 @@ public class Echontillon {
     @Column(name = "is_deleted")
     private Boolean deleted;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     private List<Analyse> analyses = new ArrayList<>();
 }

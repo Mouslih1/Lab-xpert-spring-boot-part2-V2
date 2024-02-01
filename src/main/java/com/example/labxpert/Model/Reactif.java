@@ -28,7 +28,7 @@ public class Reactif {
     private LocalDate dateExp;
 
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     private List<Fournisseur> fournisseurs = new ArrayList<>();
 
     @JsonIgnore

@@ -53,6 +53,6 @@ public class AnalyseDto implements Serializable {
     @Builder.Default
     Boolean deleted = false;
 
-    @JsonIgnoreProperties(value = "analyse")
+    @JsonIgnoreProperties(value = {"analyse"})
     List<SousAnalyseDto> sousAnalyses;
 }
