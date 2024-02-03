@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Mouslih0/lab-xpert-spring-boot-part2'
+                git branch: 'main', url: 'https://github.com/Mouslih0/lab-xpert-spring-boot-part2-V2'
             }
         }
 
