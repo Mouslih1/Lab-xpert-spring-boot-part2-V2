@@ -1,6 +1,13 @@
-# LabXpert - l'API REST via Spring Boot ( Part 1 )
+# LabXpert - l'API REST via Spring Boot ( Part 2 )
 
 Le laboratoire médical TechLab a besoin d'une application de gestion, LabXpert, pour optimiser ses opérations en améliorant l'efficacité et la précision dans le traitement des analyses médicales.
+
+LabXpert API built in Spring Boot
+
+Prerequisites:
+Spring Boot 2.7.6
+JDK 1.8
+Maven 4.0.0
 
 Ce référentiel contient des classes Java qui représentent les entités du système LabXpert, un laboratoire d'analyse médicale. Ci-dessous, vous trouverez une brève description de chaque classe fournie :
 
