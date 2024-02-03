@@ -72,6 +72,8 @@ public class EchontillonServiceImpl implements IEchontillonService {
             analyses.add(analyseExist);
         }
 
+
+        echontillonExist.setCodeEchontillon("ECHONTILLON-" + UUID.randomUUID()+ "-" + patientExist.getNom().toUpperCase() + "-" + patientExist.getPrenom().toUpperCase());
         echontillonExist.setPatient(patientExist);
         echontillonExist.setDatePrelevement(echontillonDto.getDatePrelevement());
         echontillonExist.setAnalyses(analyses);
