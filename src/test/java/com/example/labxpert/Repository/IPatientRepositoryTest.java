@@ -157,7 +157,7 @@ class IPatientRepositoryTest {
         patient.setAge(21);
 
         Patient patientSaved = iPatientRepository.save(patient);
-        Patient patientByName = iPatientRepository.findByNomAndDeletedFalse(patientSaved.getNom()).orElse(null);
+        Patient patientByName = (Patient) iPatientRepository.findByNomAndDeletedFalse(patientSaved.getNom());
         Assertions.assertThat(patientByName).isNotNull();
         Assertions.assertThat(patientSaved.getNom()).isEqualTo(patientByName.getNom());
     }

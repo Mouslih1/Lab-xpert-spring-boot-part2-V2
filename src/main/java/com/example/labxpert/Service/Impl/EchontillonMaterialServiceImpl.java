@@ -13,16 +13,13 @@ import com.example.labxpert.Repository.IEchontillonRepository;
 import com.example.labxpert.Repository.IMaterialRepository;
 import com.example.labxpert.Repository.IStockRecuperationRepository;
 import com.example.labxpert.Service.IEchontillonMaterialService;
-import com.example.labxpert.Service.IEchontillonService;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import javax.validation.ValidationException;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -48,14 +45,12 @@ public class EchontillonMaterialServiceImpl implements IEchontillonMaterialServi
 
         validationQuantity(materialExist.getAvailableQuantity(), echontillonMaterialDto.getQuantity());
 
-        //TODO: CLEAN CODE WITH COLLECT THIS CODE IN ONE METHODE
         materialExist.setAvailableQuantity(materialExist.getAvailableQuantity() - echontillonMaterialDto.getQuantity());
         iMaterialRepository.save(materialExist);
 
         echontillonMaterialDto.setPriceTotal(materialExist.getPrice()*echontillonMaterialDto.getQuantity());
         EchontillonMaterial echontillonMaterial = iEchontillonMaterialRepository.save(modelMapper.map(echontillonMaterialDto, EchontillonMaterial.class));
 
-        //TODO: THIS METHODE FOR SAVE QUANTITY WITH MATERIAL ID & ECHONTILLON MATERIAL ID
         saveStockConsomer(materialExist, echontillonMaterial);
 
         return modelMapper.map(echontillonMaterial, EchontillonMaterialDto.class);
@@ -75,7 +70,6 @@ public class EchontillonMaterialServiceImpl implements IEchontillonMaterialServi
 
         StockRecuperer stockRecuperer = recuperationStockQuantity(materialExist.getId(), echontillonMaterialExist.getId());
 
-        //TODO: THIS FOR RECUPERATION QUANTITY CONSOMER TO MATERIAL
         RecupererQuantityConsomerAvailableQuantity(materialExist, stockRecuperer);
 
         validationQuantity(materialExist.getAvailableQuantity(), echontillonMaterialDto.getQuantity());
@@ -86,12 +80,9 @@ public class EchontillonMaterialServiceImpl implements IEchontillonMaterialServi
         echontillonMaterialExist.setQuantity(echontillonMaterialDto.getQuantity());
         echontillonMaterialExist.setPriceTotal(echontillonMaterialDto.getQuantity() * materialExist.getPrice());
 
-        //TODO: THIS FOR soustracter THE NEW QUANTITY UPDATER
-        // substractionNewQuantityToAvailableQuantity(materialExist, echontillonMaterialDto);
 
         EchontillonMaterial echontillonMaterialSaved = iEchontillonMaterialRepository.save(echontillonMaterialExist);
 
-        //TODO: SAVE THE CHANGED INFORMATIONS QUANTITY CHANGED
         StockRecuperer stockRecupererUpdated = recuperationStockQuantity(materialExist.getId(),echontillonMaterialSaved.getId());
         stockRecupererUpdated.setQuantityConsomer(echontillonMaterialSaved.getQuantity());
         iStockRecuperationRepository.save(stockRecupererUpdated);
@@ -105,7 +96,6 @@ public class EchontillonMaterialServiceImpl implements IEchontillonMaterialServi
         EchontillonMaterial echontillonMaterial = iEchontillonMaterialRepository.findByIdAndDeletedFalse(id).orElseThrow(() -> new NotFoundException("Echontillon material not found with this id :" + id));
         echontillonMaterial.setDeleted(true);
 
-        //TODO: DELETE TABLE STOCK RECUPERATION WITH ECHONTILLON MATERIAL ID
         deleteByEchontillonMaterialId(echontillonMaterial.getId());
 
         iEchontillonMaterialRepository.save(echontillonMaterial);
@@ -215,6 +205,5 @@ public class EchontillonMaterialServiceImpl implements IEchontillonMaterialServi
         if (echontillonMaterialDto.getPriceTotal() < 0) {
             throw new ValidationException("Le prix total doit être supérieur ou égal à zéro.");
         }
-
     }
 }

@@ -39,15 +39,12 @@ public class EchontillonServiceImpl implements IEchontillonService {
 
         for (AnalyseDto analyse : echontillonDto.getAnalyses())
         {
-            //TODO: CHECK IF ANALYSES EFFECT TO ECHONTILLON EXIST IN SYSTEM
             Analyse analyseExist = iAnalyseRepository.findByIdAndDeletedFalse(analyse.getId()).orElseThrow(() -> new NotFoundException("Analyse not found with this id : " + analyse.getId()));
             analyses.add(modelMapper.map(analyseExist, AnalyseDto.class));
         }
 
-        //TODO: ADD ANALYSES AFFECTER TO ECHONTILLON FOR RETURN OBJECT COMPLET NOT NULL
         echontillonDto.setAnalyses(analyses);
 
-        //TODO: CHECK IF PATIENT EXIST IN SYSTEM
         Patient patientExist = iPatientRepository.findByIdAndDeletedFalse(echontillonDto.getPatient().getId()).orElseThrow(() -> new NotFoundException("Patient not found with this id : " + echontillonDto.getPatient().getId()));
 
         echontillonDto.setCodeEchontillon("ECHONTILLON-" + UUID.randomUUID()+ "-" + patientExist.getNom().toUpperCase() + "-" + patientExist.getPrenom().toUpperCase());
